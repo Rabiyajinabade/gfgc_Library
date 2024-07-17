@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Management System</title>
+    {% load static %}
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            width: 100vw; /* Full viewport width */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove any extra spacing */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to GITLib</h1>
+    <img src="{% static 'library_app/lib.jpg' %}" alt="Library">
+    <button onclick="window.location.href='/add/'">Add Book</button>
+    <button onclick="window.location.href='/lend/'">Lend Book</button>
+    <button onclick="window.location.href='/return/'">Return Book</button>
+    <button onclick="window.location.href='/issued/'">Issued Books</button>
+    <h2>Available Books</h2>
+    <ul>
+        {% for book in books %}
+        <li>{{ book.title }}{% if book.is_lent %} (Lent out){% endif %}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

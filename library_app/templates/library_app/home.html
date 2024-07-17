@@ -1,0 +1,11 @@
+{% extends 'library_app/base.html' %}
+
+{% block content %}
+<h1>Welcome to GFGC Library</h1><div class="button-group">
+    <button onclick="window.location.href='/add/'" class="btn btn-primary">Add Book</button>
+    <button onclick="window.location.href='/lend/'" class="btn btn-primary">Lend Book</button>
+    <button onclick="window.location.href='/return/'" class="btn btn-primary">Return Book</button>
+    <button onclick="window.location.href='/issued/'" class="btn btn-primary">Issued Books</button>
+</div>
+
+{% endblock %}

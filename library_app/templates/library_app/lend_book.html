@@ -1,0 +1,27 @@
+{% extends 'library_app/base.html' %}
+
+{% block title %}Lend Book{% endblock %}
+
+{% block navigation %}
+    <a href="{% url 'home' %}" class="btn btn-primary mb-3">HOME</a>
+{% endblock %}
+
+{% block content %}
+    <h2>Lend a Book</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="user" class="form-label">Your Name:</label>
+            <input type="text" class="form-control" id="user" name="user" required>
+        </div>
+        <div class="mb-3">
+            <label for="book" class="form-label">Select a Book:</label>
+            <select class="form-select" id="book" name="book">
+                {% for book in books %}
+                <option value="{{ book.title }}">{{ book.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Lend Book</button>
+    </form>
+{% endblock %}
