@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from .models import Book, LendRecord
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import BookForm, LendForm, ReturnForm
 
@@ -63,6 +63,11 @@ def return_book(request):
 def issued_books(request):
     books = Book.objects.filter(is_lent=True)
     return render(request, 'library_app/issued_books.html', {'books': books})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('login')
 
 
 
