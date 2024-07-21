@@ -1,0 +1,6 @@
+cd path/to/your/project
+git init
+git add .
+git commit -m "Added logout functionality and updated base.html"
+git remote add origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME.git
+git push origin main
